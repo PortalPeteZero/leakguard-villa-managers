@@ -3,316 +3,402 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>LeakGuard for Villa Managers — Canary Detect</title>
+  <title>LeakGuard Partner Programme — Canary Detect</title>
   <meta name="robots" content="noindex, nofollow">
-  <meta name="description" content="Partner with Canary Detect to offer 24/7 water monitoring to your villa clients. Earn commission, elevate your service.">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
-    *{margin:0;padding:0;box-sizing:border-box}
-    :root{
-      --navy:#0f172a;--navy2:#1e293b;--orange:#f7951d;--teal:#14b8a6;
-      --bg:#ffffff;--grey:#f1f5f9;--text:#1e293b;--muted:#64748b;--light:#94a3b8;
-      --hd:'Montserrat',sans-serif;--bd:'Open Sans',sans-serif;
-    }
-    html{scroll-behavior:smooth}
-    body{font-family:var(--bd);color:var(--text);line-height:1.65;background:var(--bg);-webkit-font-smoothing:antialiased}
-
-    /* NAV */
-    nav{background:var(--navy);padding:.65rem 1.5rem;position:sticky;top:0;z-index:50}
-    .nav-in{max-width:960px;margin:0 auto;display:flex;justify-content:space-between;align-items:center}
-    .nav-logo{height:32px}
-    .nav-r{display:flex;align-items:center;gap:1.2rem}
-    .nav-link{color:rgba(255,255,255,.55);text-decoration:none;font-size:.8rem}
-    .nav-link:hover{color:#fff}
-    .nav-btn{background:var(--orange);color:var(--navy);font-weight:700;font-size:.78rem;padding:.4rem 1rem;border-radius:5px;text-decoration:none}
-
-    /* HERO */
-    .hero{background:var(--navy);color:#fff;padding:3rem 1.5rem 0;overflow:hidden}
-    .hero-in{max-width:960px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:end}
-    .hero-txt{padding-bottom:3rem}
-    .badge{display:inline-block;font-family:var(--hd);font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--orange);border:1px solid rgba(247,149,29,.3);padding:.25rem .8rem;border-radius:50px;margin-bottom:1.2rem}
-    .hero h1{font-family:var(--hd);font-size:clamp(1.6rem,3.5vw,2.3rem);font-weight:800;line-height:1.15;margin-bottom:1rem}
-    .hero h1 em{color:var(--orange);font-style:normal}
-    .hero-p{color:rgba(255,255,255,.6);font-size:.92rem;margin-bottom:1.8rem;max-width:400px}
-    .cta-btn{display:inline-flex;align-items:center;gap:.4rem;background:var(--orange);color:var(--navy);font-family:var(--hd);font-weight:700;font-size:.85rem;padding:.65rem 1.3rem;border-radius:5px;text-decoration:none;transition:background .15s}
-    .cta-btn:hover{background:var(--orange-hover,#e5880f)}
-    .cta-btn svg{width:14px;height:14px}
-    .hero-img img{width:100%;max-width:440px;display:block;border-radius:10px 10px 0 0}
-    @media(max-width:700px){
-      .hero-in{grid-template-columns:1fr}
-      .hero-txt{padding-bottom:1.5rem}
-      .hero-img{order:-1}.hero-img img{border-radius:10px;max-width:100%}
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Open Sans', sans-serif;
+      color: #1a1a1a;
+      line-height: 1.75;
+      background: #f5f5f4;
+      -webkit-font-smoothing: antialiased;
     }
 
-    /* SECTION */
-    .s{padding:3rem 1.5rem}
-    .s-in{max-width:960px;margin:0 auto}
-    .s-grey{background:var(--grey)}
-    .s-navy{background:var(--navy);color:#fff}
-    .s-navy .muted{color:rgba(255,255,255,.55)}
-    .s-navy h2{color:#fff}
+    /* The letter container */
+    .letter {
+      max-width: 700px;
+      margin: 2rem auto;
+      background: #ffffff;
+      border-radius: 8px;
+      box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+      overflow: hidden;
+    }
 
-    .row{display:grid;grid-template-columns:180px 1fr;gap:2rem;align-items:start}
-    @media(max-width:700px){.row{grid-template-columns:1fr;gap:.4rem}}
-    .tag{font-family:var(--hd);font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--light);padding-top:.15rem}
-    h2{font-family:var(--hd);font-size:1.3rem;font-weight:700;line-height:1.3;margin-bottom:.8rem}
-    .muted{color:var(--muted);font-size:.92rem}
-    .muted+.muted{margin-top:.5rem}
+    /* Header banner */
+    .header {
+      background: #0f172a;
+      padding: 1.5rem 2.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .header img { height: 34px; }
+    .header a {
+      color: rgba(255,255,255,0.5);
+      text-decoration: none;
+      font-size: 0.8rem;
+    }
 
-    /* CARDS */
-    .cards{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;margin-top:1rem}
-    .cards .w{grid-column:1/-1}
-    @media(max-width:520px){.cards{grid-template-columns:1fr}}
-    .cd{background:var(--grey);border-radius:6px;padding:1rem 1.1rem}
-    .s-grey .cd{background:var(--bg)}
-    .cd h3{font-family:var(--hd);font-size:.82rem;font-weight:600;margin-bottom:.15rem}
-    .cd p{font-size:.82rem;color:var(--muted);margin:0;line-height:1.5}
-    .dot{width:5px;height:5px;border-radius:50%;background:var(--teal);display:inline-block;margin-bottom:.5rem}
+    /* Hero image */
+    .hero-img {
+      width: 100%;
+      display: block;
+    }
 
-    /* DASHBOARD IMG */
-    .dash{margin-top:1.2rem;border-radius:8px;overflow:hidden;background:var(--navy);box-shadow:0 4px 20px rgba(0,0,0,.1)}
-    .dash img{width:100%;display:block}
-    .cap{font-size:.75rem;color:var(--light);margin-top:.4rem;font-style:italic}
+    /* Letter body */
+    .body {
+      padding: 2.5rem;
+    }
 
-    /* IMAGE BAND */
-    .band{height:220px;position:relative;overflow:hidden}
-    .band img{width:100%;height:100%;object-fit:cover;display:block}
-    .band-ov{position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,23,42,.35),rgba(15,23,42,.75));display:flex;align-items:center;justify-content:center;text-align:center;padding:1.5rem}
-    .band-ov h2{font-family:var(--hd);font-size:clamp(1.1rem,2.5vw,1.5rem);font-weight:800;color:#fff;margin-bottom:.2rem}
-    .band-ov h2 em{color:var(--orange);font-style:normal}
-    .band-ov p{color:rgba(255,255,255,.6);font-size:.88rem}
+    .body h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.6rem;
+      font-weight: 800;
+      line-height: 1.25;
+      margin-bottom: 0.3rem;
+      color: #0f172a;
+    }
 
-    /* CHECK LIST */
-    .chk{list-style:none;margin-top:.8rem}
-    .chk li{padding:.3rem 0 .3rem 1.4rem;position:relative;color:var(--muted);font-size:.92rem}
-    .chk li::before{content:'\2713';position:absolute;left:0;top:.25rem;color:var(--teal);font-weight:700;font-size:.82rem}
+    .body .subtitle {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: #f7951d;
+      margin-bottom: 1.5rem;
+    }
 
-    /* STATS */
-    .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:.6rem;margin-top:1.2rem}
-    @media(max-width:520px){.stats{grid-template-columns:1fr}}
-    .st{background:#f0fdfa;border:1px solid #ccfbf1;border-radius:6px;padding:1rem;text-align:center}
-    .st-n{font-family:var(--hd);font-size:1.4rem;font-weight:800;color:var(--teal);line-height:1}
-    .st-l{font-size:.72rem;color:var(--light);margin-top:.15rem}
+    .body p {
+      margin-bottom: 1rem;
+      font-size: 0.95rem;
+      color: #333;
+    }
 
-    /* OPTIONS */
-    .opts{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;margin-top:1rem}
-    @media(max-width:480px){.opts{grid-template-columns:1fr}}
-    .opt{background:var(--grey);border-radius:6px;padding:1.3rem;text-align:center}
-    .s-grey .opt{background:var(--bg)}
-    .opt-i{font-size:1.5rem;margin-bottom:.4rem;display:block}
-    .opt h3{font-family:var(--hd);font-size:.85rem;font-weight:600;margin-bottom:.15rem}
-    .opt p{font-size:.8rem;color:var(--muted);margin:0}
+    .body strong { color: #0f172a; }
+    .body em { font-style: italic; }
 
-    /* COMMISSION */
-    .comm{background:#fef7ed;border:1px solid #fde9c8;border-radius:8px;padding:1.4rem;margin-top:1rem}
-    .comm .big{font-family:var(--hd);font-size:2rem;font-weight:900;color:var(--orange);line-height:1;margin-bottom:.25rem}
-    .comm p{color:var(--muted);font-size:.88rem;margin:0}
+    .body h2 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #0f172a;
+      margin-top: 2rem;
+      margin-bottom: 0.6rem;
+    }
 
-    /* PRICING */
-    .ptbl{margin-top:1rem;border:1px solid #e2e8f0;border-radius:6px;overflow:hidden}
-    .pr{display:flex;justify-content:space-between;align-items:baseline;padding:.7rem 1.1rem;border-bottom:1px solid #f1f5f9}
-    .pr:last-child{border:none}
-    .pr span:first-child{color:var(--muted);font-size:.88rem}
-    .pr span:last-child{font-family:var(--hd);font-weight:700;font-size:.88rem}
-    .pnote{font-size:.78rem;color:var(--light);margin-top:.5rem}
+    .body h3 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #0f172a;
+      margin-top: 1.5rem;
+      margin-bottom: 0.4rem;
+    }
 
-    /* CTA SECTION */
-    .cta-s{background:var(--navy);color:#fff;padding:3.5rem 1.5rem;text-align:center}
-    .cta-s h2{color:#fff;margin-bottom:.5rem}
-    .cta-s .muted{color:rgba(255,255,255,.5);max-width:380px;margin:0 auto 1.5rem}
-    .btns{display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap}
-    .btn-g{display:inline-flex;align-items:center;gap:.35rem;background:rgba(255,255,255,.07);color:#fff;font-family:var(--hd);font-weight:600;padding:.65rem 1.2rem;border-radius:5px;text-decoration:none;font-size:.82rem;border:1px solid rgba(255,255,255,.1);transition:background .15s}
-    .btn-g:hover{background:rgba(255,255,255,.12)}
-    .btn-g svg,.cta-btn svg{width:14px;height:14px}
+    /* Inline image with caption */
+    .img-block {
+      margin: 1.5rem 0;
+      border-radius: 6px;
+      overflow: hidden;
+      border: 1px solid #e5e5e5;
+    }
+    .img-block img {
+      width: 100%;
+      display: block;
+    }
+    .img-block .cap {
+      padding: 0.5rem 0.8rem;
+      font-size: 0.78rem;
+      color: #888;
+      background: #fafafa;
+      font-style: italic;
+    }
 
-    /* FOOTER */
-    footer{background:var(--navy);border-top:1px solid rgba(255,255,255,.05);padding:1.5rem}
-    .ft-in{max-width:960px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.8rem}
-    .ft-l{display:flex;align-items:center;gap:.6rem}
-    .ft-logo{height:24px}
-    .ft-t{font-size:.75rem;color:rgba(255,255,255,.35);line-height:1.4}
-    .ft-t a{color:var(--orange);text-decoration:none}
-    .ft-r{font-size:.7rem;color:rgba(255,255,255,.2)}
+    /* Bullet list */
+    .body ul {
+      margin: 0.8rem 0 1rem 1.3rem;
+    }
+    .body ul li {
+      margin-bottom: 0.4rem;
+      font-size: 0.95rem;
+      color: #333;
+    }
+
+    /* Highlight box */
+    .highlight {
+      background: #fef7ed;
+      border-left: 4px solid #f7951d;
+      padding: 1rem 1.2rem;
+      margin: 1.5rem 0;
+      border-radius: 0 6px 6px 0;
+    }
+    .highlight p { margin-bottom: 0.3rem; }
+    .highlight p:last-child { margin-bottom: 0; }
+    .highlight strong { color: #f7951d; }
+
+    /* Pricing table */
+    .price-table {
+      margin: 1rem 0;
+      border: 1px solid #e5e5e5;
+      border-radius: 6px;
+      overflow: hidden;
+    }
+    .price-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 0.6rem 1rem;
+      font-size: 0.9rem;
+      border-bottom: 1px solid #f0f0f0;
+    }
+    .price-row:last-child { border-bottom: none; }
+    .price-row span:last-child {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+    }
+
+    /* Image band */
+    .band {
+      margin: 1.5rem -2.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .band img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      display: block;
+    }
+    .band-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(rgba(15,23,42,0.3), rgba(15,23,42,0.65));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 1rem;
+    }
+    .band-overlay p {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      color: white;
+      font-size: 1.1rem;
+    }
+    .band-overlay p em {
+      color: #f7951d;
+      font-style: normal;
+    }
+
+    /* CTA box */
+    .cta-box {
+      background: #0f172a;
+      border-radius: 6px;
+      padding: 1.5rem;
+      text-align: center;
+      margin-top: 2rem;
+    }
+    .cta-box p {
+      color: rgba(255,255,255,0.6);
+      font-size: 0.88rem;
+      margin-bottom: 1rem;
+    }
+    .cta-box .btns {
+      display: flex;
+      gap: 0.5rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .btn-wa {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      background: #f7951d;
+      color: #0f172a;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 0.82rem;
+      padding: 0.55rem 1rem;
+      border-radius: 5px;
+      text-decoration: none;
+    }
+    .btn-wa:hover { background: #e5880f; }
+    .btn-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      color: rgba(255,255,255,0.6);
+      font-size: 0.82rem;
+      text-decoration: none;
+      padding: 0.55rem 0.8rem;
+    }
+    .btn-link:hover { color: white; }
+    .btn-wa svg, .btn-link svg { width: 13px; height: 13px; }
+
+    /* Signature */
+    .sig {
+      margin-top: 2rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid #e5e5e5;
+    }
+    .sig p {
+      font-size: 0.88rem;
+      margin-bottom: 0.2rem;
+    }
+    .sig .name {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      color: #0f172a;
+    }
+    .sig .role { color: #888; font-size: 0.82rem; }
+    .sig .phone { color: #f7951d; text-decoration: none; font-weight: 600; }
+
+    /* Footer */
+    .footer {
+      background: #0f172a;
+      padding: 1rem 2.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .footer img { height: 22px; }
+    .footer span { font-size: 0.68rem; color: rgba(255,255,255,0.2); }
+
+    @media (max-width: 740px) {
+      .letter { margin: 0; border-radius: 0; }
+      .body { padding: 1.5rem; }
+      .band { margin: 1.5rem -1.5rem; }
+      .header, .footer { padding-left: 1.5rem; padding-right: 1.5rem; }
+    }
   </style>
 </head>
 <body>
 
-<nav>
-  <div class="nav-in">
-    <img src="img/logo-dark-bg.png" alt="Canary Detect" class="nav-logo">
-    <div class="nav-r">
-      <a href="https://canary-detect.com" class="nav-link">canary-detect.com</a>
-      <a href="#contact" class="nav-btn">Get in touch</a>
-    </div>
-  </div>
-</nav>
+<div class="letter">
 
-<div class="hero">
-  <div class="hero-in">
-    <div class="hero-txt">
-      <div class="badge">LeakGuard Partner Programme</div>
-      <h1>Stop getting blamed for <em>invisible leaks</em></h1>
-      <p class="hero-p">You manage the villas. We monitor the water. When a hidden leak surfaces, you're the hero who spotted it -- not the scapegoat who missed it.</p>
-      <a href="#contact" class="cta-btn">Let's talk <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg></a>
-    </div>
-    <div class="hero-img">
-      <img src="img/detective-cartoon.png" alt="Canary Detect leak detectives">
-    </div>
+  <!-- Header -->
+  <div class="header">
+    <img src="img/logo-dark-bg.png" alt="Canary Detect">
+    <a href="https://canary-detect.com">canary-detect.com</a>
   </div>
-</div>
 
-<div class="s">
-  <div class="s-in row">
-    <div class="tag">The problem</div>
-    <div>
-      <h2>The bill arrives. The walls bloom. And somehow it's your fault.</h2>
-      <p class="muted">When a hidden leak surfaces -- a shock water bill, damp creeping through plaster -- the owner's first instinct is to point at the management company. <em>"How did you not spot this?"</em></p>
-      <p class="muted">But nobody could have. The pipe was underground, the joint was behind a wall, the cistern was trickling silently for weeks. In Lanzarote, water bills arrive every two months. By the time anyone notices, the damage is done and the relationship is strained.</p>
-      <p class="muted">We've attended hundreds of these jobs. We know exactly how it plays out -- because we're the ones called in to find the leak after it's too late.</p>
+  <!-- Hero image -->
+  <img src="img/detective-cartoon.png" alt="Canary Detect -- The Leaky Finders" class="hero-img">
+
+  <!-- Letter body -->
+  <div class="body">
+
+    <h1>LeakGuard Partner Programme</h1>
+    <div class="subtitle">For villa management companies in Lanzarote</div>
+
+    <p>If you manage holiday villas, you already know the story. A hidden leak runs for weeks -- underground, behind a wall, a cistern trickling silently. The water bill arrives at two or three times the normal amount, and the owner asks you why nobody spotted it.</p>
+
+    <p>Of course, nobody could have. But you're the one who gets the blame.</p>
+
+    <p>We're Canary Detect, and we've attended hundreds of these jobs. We know exactly how it plays out -- because we're the ones called in to find the leak after it's too late. That's why we built <strong>LeakGuard</strong>.</p>
+
+    <h2>What LeakGuard does</h2>
+
+    <p>A cloud-connected device sits on the property's water meter and monitors consumption 24/7. It runs on its own cellular connection -- no WiFi, no broadband, no dependency on the property's internet. It learns normal usage patterns and sends instant phone alerts when something looks wrong.</p>
+
+    <p>But it's not just about leaks. LeakGuard gives you a complete picture of water usage at every property:</p>
+
+    <ul>
+      <li><strong>Overnight flow</strong> -- water running when the property should be empty</li>
+      <li><strong>Passing toilets</strong> -- a cistern trickling silently for weeks</li>
+      <li><strong>Taps and hoses left on</strong> -- guest checks out, garden hose still running</li>
+      <li><strong>Pool leaks</strong> -- weekly consumption trending up tells the story</li>
+      <li><strong>Daily and hourly usage</strong> -- know what's happening without being there</li>
+    </ul>
+
+    <div class="img-block">
+      <img src="img/dashboard-monthly.png" alt="LeakGuard dashboard -- daily water usage">
+      <div class="cap">Real data from a LeakGuard-monitored property -- daily usage with daytime and overnight flow breakdown.</div>
     </div>
-  </div>
-</div>
 
-<div class="s s-grey">
-  <div class="s-in row">
-    <div class="tag">Beyond leak detection</div>
-    <div>
-      <h2>It's not just about leaks. It's about knowing what's happening with water.</h2>
-      <p class="muted">LeakGuard monitors total water consumption around the clock. That means it catches far more than burst pipes.</p>
-      <div class="cards">
-        <div class="cd"><div class="dot"></div><h3>Overnight flow</h3><p>Water running when the property should be empty? You'll know immediately.</p></div>
-        <div class="cd"><div class="dot"></div><h3>Passing toilets</h3><p>A cistern that won't stop filling. Invisible, silent, expensive over weeks.</p></div>
-        <div class="cd"><div class="dot"></div><h3>Taps and hoses left on</h3><p>A guest checks out and leaves the garden hose running. Flagged the same day.</p></div>
-        <div class="cd"><div class="dot"></div><h3>Pool leak detection</h3><p>Weekly water use trending up? Could be a slow pool leak. The data tells the story.</p></div>
-        <div class="cd w"><div class="dot"></div><h3>A complete picture -- without setting foot in the property</h3><p>Daily consumption patterns analysed automatically. You know what's happening at every property in your portfolio, from anywhere.</p></div>
-      </div>
-      <div class="dash"><img src="img/dashboard-monthly.png" alt="LeakGuard dashboard"></div>
-      <p class="cap">Real data from a LeakGuard-monitored property -- daily usage with daytime and overnight flow breakdown.</p>
+    <h2>How the partnership works</h2>
+
+    <p>You recommend LeakGuard to your villa clients. We handle absolutely everything else -- survey, installation, monitoring, alerts, response. You don't need to lift a finger beyond making the introduction.</p>
+
+    <ul>
+      <li>We survey and install the device</li>
+      <li>We monitor 24/7 and handle all alerts</li>
+      <li>If an alert triggers and nobody's available, we'll attend the property on your behalf</li>
+      <li>Partner companies get priority slots for leak surveys and repairs</li>
+      <li><strong>You earn 10% commission on every installation fee</strong></li>
+    </ul>
+
+    <div class="highlight">
+      <p><strong>10% commission on every install.</strong></p>
+      <p>The owner pays &euro;395 for setup. You earn &euro;39.50 per property. Thirty villas? That's nearly &euro;1,200 in your pocket for making introductions.</p>
     </div>
-  </div>
-</div>
 
-<div class="s">
-  <div class="s-in row">
-    <div class="tag">Stand out</div>
-    <div>
-      <h2>Elevate your service</h2>
-      <p class="muted">Most villa management packages cover cleaning, pool maintenance, and key holding. Recommend LeakGuard to your clients and stand out.</p>
-      <p class="muted">Being able to say <strong>"we work with Canary Detect to make sure your water is monitored around the clock"</strong> sets you apart when pitching new owners or retaining existing ones.</p>
+    <h2>Your own dashboard -- if you want one</h2>
+
+    <p>We can give you an admin account to view all your LeakGuarded properties in one place -- check usage, see alerts, keep an eye on things. Or you can leave it entirely to us. Your call.</p>
+
+    <div class="img-block">
+      <img src="img/dashboard-analytics.png" alt="LeakGuard full analytics view">
+      <div class="cap">Full analytics: weekly comparison, hourly usage profile, and key stats at a glance.</div>
     </div>
-  </div>
-</div>
 
-<div class="band">
-  <img src="img/wanted-poster.png" alt="Wanted -- water leak">
-  <div class="band-ov">
-    <div><h2>Hundreds of leaks found. <em>Thousands saved.</em></h2><p>Canary Detect is Lanzarote's specialist leak detection company.</p></div>
-  </div>
-</div>
+    <h3>Simple pricing for the owner</h3>
 
-<div class="s s-grey">
-  <div class="s-in row">
-    <div class="tag">Your partner</div>
-    <div>
-      <h2>We handle everything</h2>
-      <p class="muted">Survey, install, monitoring, alerts -- all us. You make the introduction, we do the rest.</p>
-      <ul class="chk">
-        <li>Professional installation survey and device setup</li>
-        <li>24/7 cloud monitoring and instant phone alerts</li>
-        <li>If an alert triggers and nobody's available, we'll attend the property on your behalf</li>
-        <li>Priority slots for leak surveys and repairs for partner management companies</li>
-      </ul>
-      <div class="stats">
-        <div class="st"><div class="st-n">24hrs</div><div class="st-l">Leak detected vs 6-8 weeks</div></div>
-        <div class="st"><div class="st-n">0</div><div class="st-l">WiFi needed -- cellular only</div></div>
-        <div class="st"><div class="st-n">24/7</div><div class="st-l">Cloud monitoring</div></div>
+    <div class="price-table">
+      <div class="price-row"><span>Installation and setup</span><span>&euro;395 one-off</span></div>
+      <div class="price-row"><span>LeakGuard subscription (monitoring, alerts, alarms)</span><span>&euro;60/year</span></div>
+      <div class="price-row"><span>Plus plans with full analytics</span><span>Available</span></div>
+    </div>
+    <p style="font-size:0.82rem;color:#888;margin-top:0.4rem">Installation subject to survey.</p>
+
+    <div class="band">
+      <img src="img/mascot.png" alt="LeakGuard">
+      <div class="band-overlay">
+        <p>Hundreds of leaks found. <em>Thousands saved.</em></p>
       </div>
     </div>
-  </div>
-</div>
 
-<div class="s">
-  <div class="s-in row">
-    <div class="tag">Your choice</div>
-    <div>
-      <h2>Hands-on or hands-off -- you decide</h2>
-      <p class="muted">We can set you up with your own admin dashboard to view all your LeakGuarded properties in one place. Or leave it all to us.</p>
-      <div class="opts">
-        <div class="opt"><span class="opt-i">&#128200;</span><h3>I want to see it</h3><p>Your own login. All your properties. Full visibility.</p></div>
-        <div class="opt"><span class="opt-i">&#9749;</span><h3>Just handle it</h3><p>We monitor and respond. You hear from us when it matters.</p></div>
+    <p>Being able to tell your clients <strong>"we work with Canary Detect to make sure your water is monitored around the clock"</strong> is a genuine differentiator. It sets you apart when pitching new owners or retaining existing ones.</p>
+
+    <p>We can also provide you with ready-made template emails and information to send straight to your clients -- so you don't have to write a thing.</p>
+
+    <!-- CTA -->
+    <div class="cta-box">
+      <p>Interested? Let's have a quick chat about your portfolio.</p>
+      <div class="btns">
+        <a href="https://wa.me/34711051071?text=Hi%2C%20I%20manage%20villas%20in%20Lanzarote%20and%20I%27m%20interested%20in%20the%20LeakGuard%20partner%20programme." class="btn-wa">
+          <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+          WhatsApp us
+        </a>
+        <a href="tel:+34711051071" class="btn-link">
+          <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z"/></svg>
+          +34 711 051 071
+        </a>
+        <a href="mailto:info@canary-detect.com?subject=LeakGuard%20Partner%20Programme" class="btn-link">
+          <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75"/></svg>
+          Email
+        </a>
       </div>
-      <div class="dash" style="margin-top:1rem"><img src="img/dashboard-analytics.png" alt="LeakGuard analytics"></div>
-      <p class="cap">Full analytics: week-on-week comparison, hourly usage profile, and key stats at a glance.</p>
     </div>
-  </div>
-</div>
 
-<div class="band">
-  <img src="img/mascot.png" alt="LeakGuard water meter characters">
-  <div class="band-ov" style="background:linear-gradient(180deg,rgba(15,23,42,.25),rgba(15,23,42,.6))">
-    <div><h2>Meet the team that <em>never sleeps.</em></h2><p>Monitoring every drop, every hour, every day.</p></div>
-  </div>
-</div>
-
-<div class="s s-grey">
-  <div class="s-in row">
-    <div class="tag">Earn from it</div>
-    <div>
-      <h2>10% commission on every install</h2>
-      <p class="muted">You refer the client, we do the work. You earn 10% of every installation fee.</p>
-      <div class="comm"><div class="big">~&euro;1,200</div><p>That's what 30 villa installs puts in your pocket. The owner pays, you earn.</p></div>
+    <!-- Signature -->
+    <div class="sig">
+      <p class="name">Pete Ashcroft</p>
+      <p class="role">Canary Detect</p>
+      <a href="tel:+34711051071" class="phone">+34 711 051 071</a>
+      <p style="color:#888;font-size:0.82rem">info@canary-detect.com</p>
+      <p style="color:#888;font-size:0.82rem">leakguardlanzarote.com</p>
     </div>
-  </div>
-</div>
 
-<div class="s">
-  <div class="s-in row">
-    <div class="tag">Simple pricing</div>
-    <div>
-      <h2>What the owner pays</h2>
-      <div class="ptbl">
-        <div class="pr"><span>Installation and setup</span><span>&euro;395 one-off</span></div>
-        <div class="pr"><span>LeakGuard subscription -- monitoring, alerts, alarms</span><span>&euro;60/year</span></div>
-        <div class="pr"><span>Plus plans with full analytics</span><span>Available</span></div>
-      </div>
-      <p class="pnote">Installation subject to survey. Your commission: 10% of the install fee on every referral.</p>
-    </div>
   </div>
-</div>
 
-<div class="s s-grey">
-  <div class="s-in row">
-    <div class="tag">The tech</div>
-    <div>
-      <h2>How LeakGuard works</h2>
-      <p class="muted">A cloud-connected device attaches to the property's water meter. It runs on its own cellular connection -- no WiFi, no broadband, no dependency on the property's internet.</p>
-      <p class="muted">It learns the property's normal usage patterns and sends instant phone alerts when something looks wrong. Overnight flow, sudden spikes, slow creeping increases -- all flagged automatically.</p>
-      <p class="muted">The owner doesn't need to be present for installation. We coordinate with you or the keyholder and handle everything on site.</p>
-    </div>
+  <!-- Footer -->
+  <div class="footer">
+    <img src="img/logo-dark-bg.png" alt="Canary Detect">
+    <span>&copy; 2026 Canary Detect</span>
   </div>
-</div>
 
-<div class="cta-s" id="contact">
-  <div class="s-in">
-    <h2>Let's talk about your portfolio</h2>
-    <p class="muted">Whether you manage 5 villas or 50, we'd like to see if LeakGuard is a good fit for your clients.</p>
-    <div class="btns">
-      <a href="https://wa.me/34711051071?text=Hi%2C%20I%20manage%20villas%20in%20Lanzarote%20and%20I%27m%20interested%20in%20the%20LeakGuard%20partner%20programme." class="cta-btn"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg> WhatsApp us</a>
-      <a href="tel:+34711051071" class="btn-g"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z"/></svg> +34 711 051 071</a>
-      <a href="mailto:info@canary-detect.com?subject=LeakGuard%20Partner%20Programme" class="btn-g"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75"/></svg> Email us</a>
-    </div>
-  </div>
 </div>
-
-<footer>
-  <div class="ft-in">
-    <div class="ft-l">
-      <img src="img/logo-dark-bg.png" alt="Canary Detect" class="ft-logo">
-      <div class="ft-t">LeakGuard by <a href="https://canary-detect.com">Canary Detect</a> &middot; Lanzarote</div>
-    </div>
-    <div class="ft-r">&copy; 2026 Canary Detect</div>
-  </div>
-</footer>
 
 </body>
 </html>
