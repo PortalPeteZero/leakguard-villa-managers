@@ -35,10 +35,45 @@
       align-items: center;
     }
     .header img { height: 34px; }
-    .header a {
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .header a.site-link {
       color: rgba(255,255,255,0.5);
       text-decoration: none;
       font-size: 0.8rem;
+    }
+
+    /* Language toggle */
+    .lang-toggle {
+      display: flex;
+      background: rgba(255,255,255,0.1);
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.15);
+    }
+    .lang-btn {
+      padding: 0.3rem 0.7rem;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 0.72rem;
+      letter-spacing: 0.03em;
+      color: rgba(255,255,255,0.4);
+      cursor: pointer;
+      transition: all 0.2s;
+      border: none;
+      background: transparent;
+      text-transform: uppercase;
+    }
+    .lang-btn.active {
+      background: #f7951d;
+      color: #0f172a;
+      border-radius: 18px;
+    }
+    .lang-btn:hover:not(.active) {
+      color: rgba(255,255,255,0.7);
     }
 
     /* Hero image */
@@ -269,6 +304,7 @@
       .body { padding: 1.5rem; }
       .band { margin: 1.5rem -1.5rem; }
       .header, .footer { padding-left: 1.5rem; padding-right: 1.5rem; }
+      .header a.site-link { display: none; }
     }
   </style>
 </head>
@@ -279,7 +315,13 @@
   <!-- Header -->
   <div class="header">
     <img src="img/logo-dark-bg.png" alt="Canary Detect">
-    <a href="https://canary-detect.com">canary-detect.com</a>
+    <div class="header-right">
+      <div class="lang-toggle">
+        <button class="lang-btn active" data-lang="en" onclick="setLang('en')">EN</button>
+        <button class="lang-btn" data-lang="es" onclick="setLang('es')">ES</button>
+      </div>
+      <a href="https://canary-detect.com" class="site-link">canary-detect.com</a>
+    </div>
   </div>
 
   <!-- Hero image -->
@@ -288,87 +330,87 @@
   <!-- Letter body -->
   <div class="body">
 
-    <h1>LeakGuard Partner Programme</h1>
-    <div class="subtitle">For villa management companies in Lanzarote</div>
+    <h1 data-en="LeakGuard Partner Programme" data-es="Programa de Colaboración LeakGuard"></h1>
+    <div class="subtitle" data-en="For villa management companies in Lanzarote" data-es="Para empresas de gestión de villas en Lanzarote"></div>
 
-    <p>If you manage holiday villas, you already know the story. A hidden leak runs for weeks -- underground, behind a wall, a cistern trickling silently. The water bill arrives at two or three times the normal amount, and the owner asks you why nobody spotted it.</p>
+    <p data-en="If you manage holiday villas, you already know the story. A hidden leak runs for weeks -- underground, behind a wall, a cistern trickling silently. The water bill arrives at two or three times the normal amount, and the owner asks you why nobody spotted it." data-es="Si gestionas villas vacacionales, ya conoces la historia. Una fuga oculta funciona durante semanas -- bajo tierra, detrás de una pared, una cisterna goteando en silencio. La factura del agua llega al doble o triple de lo normal, y el propietario te pregunta por qué nadie lo detectó."></p>
 
-    <p>Of course, nobody could have. But you're the one who gets the blame.</p>
+    <p data-en="Of course, nobody could have. But you're the one who gets the blame." data-es="Por supuesto, nadie podría haberlo hecho. Pero tú eres quien recibe la culpa."></p>
 
-    <p>We're Canary Detect, and we've attended hundreds of these jobs. We know exactly how it plays out -- because we're the ones called in to find the leak after it's too late. That's why we built <strong>LeakGuard</strong>.</p>
+    <p data-en="We're Canary Detect, and we've attended hundreds of these jobs. We know exactly how it plays out -- because we're the ones called in to find the leak after it's too late. That's why we built <strong>LeakGuard</strong>." data-es="Somos Canary Detect, y hemos atendido cientos de estos trabajos. Sabemos exactamente cómo se desarrolla -- porque somos los que nos llaman para encontrar la fuga cuando ya es demasiado tarde. Por eso creamos <strong>LeakGuard</strong>."></p>
 
-    <h2>What LeakGuard does</h2>
+    <h2 data-en="What LeakGuard does" data-es="Qué hace LeakGuard"></h2>
 
-    <p>A cloud-connected device sits on the property's water meter and monitors consumption 24/7. It runs on its own cellular connection -- no WiFi, no broadband, no dependency on the property's internet. It learns normal usage patterns and sends instant phone alerts when something looks wrong.</p>
+    <p data-en="A cloud-connected device sits on the property's water meter and monitors consumption 24/7. It runs on its own cellular connection -- no WiFi, no broadband, no dependency on the property's internet. It learns normal usage patterns and sends instant phone alerts when something looks wrong." data-es="Un dispositivo conectado a la nube se instala en el contador de agua de la propiedad y monitoriza el consumo las 24 horas. Funciona con su propia conexión móvil -- sin WiFi, sin banda ancha, sin depender del internet de la propiedad. Aprende los patrones de consumo normales y envía alertas instantáneas al teléfono cuando algo no va bien."></p>
 
-    <p>But it's not just about leaks. LeakGuard gives you a complete picture of water usage at every property:</p>
+    <p data-en="But it's not just about leaks. LeakGuard gives you a complete picture of water usage at every property:" data-es="Pero no se trata solo de fugas. LeakGuard te ofrece una imagen completa del consumo de agua en cada propiedad:"></p>
 
-    <ul>
-      <li><strong>Overnight flow</strong> -- water running when the property should be empty</li>
-      <li><strong>Passing toilets</strong> -- a cistern trickling silently for weeks</li>
-      <li><strong>Taps and hoses left on</strong> -- guest checks out, garden hose still running</li>
-      <li><strong>Pool leaks</strong> -- weekly consumption trending up tells the story</li>
-      <li><strong>Daily and hourly usage</strong> -- know what's happening without being there</li>
+    <ul id="features-list">
+      <li data-en="<strong>Overnight flow</strong> -- water running when the property should be empty" data-es="<strong>Flujo nocturno</strong> -- agua corriendo cuando la propiedad debería estar vacía"></li>
+      <li data-en="<strong>Passing toilets</strong> -- a cistern trickling silently for weeks" data-es="<strong>Cisternas con fugas</strong> -- una cisterna goteando silenciosamente durante semanas"></li>
+      <li data-en="<strong>Taps and hoses left on</strong> -- guest checks out, garden hose still running" data-es="<strong>Grifos y mangueras abiertos</strong> -- el huésped se va, la manguera del jardín sigue abierta"></li>
+      <li data-en="<strong>Pool leaks</strong> -- weekly consumption trending up tells the story" data-es="<strong>Fugas en la piscina</strong> -- el consumo semanal al alza cuenta la historia"></li>
+      <li data-en="<strong>Daily and hourly usage</strong> -- know what's happening without being there" data-es="<strong>Consumo diario y por horas</strong> -- saber qué pasa sin estar allí"></li>
     </ul>
 
     <div class="img-block">
       <img src="img/dashboard-monthly.png" alt="LeakGuard dashboard -- daily water usage">
-      <div class="cap">Real data from a LeakGuard-monitored property -- daily usage with daytime and overnight flow breakdown.</div>
+      <div class="cap" data-en="Real data from a LeakGuard-monitored property -- daily usage with daytime and overnight flow breakdown." data-es="Datos reales de una propiedad monitorizada con LeakGuard -- consumo diario con desglose de flujo diurno y nocturno."></div>
     </div>
 
-    <h2>How the partnership works</h2>
+    <h2 data-en="How the partnership works" data-es="Cómo funciona la colaboración"></h2>
 
-    <p>You recommend LeakGuard to your villa clients. We handle absolutely everything else -- survey, installation, monitoring, alerts, response. You don't need to lift a finger beyond making the introduction.</p>
+    <p data-en="You recommend LeakGuard to your villa clients. We handle absolutely everything else -- survey, installation, monitoring, alerts, response. You don't need to lift a finger beyond making the introduction." data-es="Tú recomiendas LeakGuard a los propietarios de tus villas. Nosotros nos encargamos de absolutamente todo lo demás -- inspección, instalación, monitorización, alertas, respuesta. No tienes que mover un dedo más allá de hacer la presentación."></p>
 
-    <ul>
-      <li>We survey and install the device</li>
-      <li>We monitor 24/7 and handle all alerts</li>
-      <li>If an alert triggers and nobody's available, we'll attend the property on your behalf</li>
-      <li>Partner companies get priority slots for leak surveys and repairs</li>
-      <li><strong>You earn 10% commission on every installation fee</strong></li>
+    <ul id="partnership-list">
+      <li data-en="We survey and install the device" data-es="Inspeccionamos e instalamos el dispositivo"></li>
+      <li data-en="We monitor 24/7 and handle all alerts" data-es="Monitorizamos 24/7 y gestionamos todas las alertas"></li>
+      <li data-en="If an alert triggers and nobody's available, we'll attend the property on your behalf" data-es="Si salta una alerta y no hay nadie disponible, atendemos la propiedad en tu nombre"></li>
+      <li data-en="Partner companies get priority slots for leak surveys and repairs" data-es="Las empresas colaboradoras tienen prioridad para inspecciones y reparaciones de fugas"></li>
+      <li data-en="<strong>You earn 10% commission on every installation fee</strong>" data-es="<strong>Ganas un 10% de comisión por cada instalación</strong>"></li>
     </ul>
 
     <div class="highlight">
-      <p><strong>10% commission on every install.</strong></p>
-      <p>The owner pays &euro;395 for setup. You earn &euro;39.50 per property. Thirty villas? That's nearly &euro;1,200 in your pocket for making introductions.</p>
+      <p data-en="<strong>10% commission on every install.</strong>" data-es="<strong>10% de comisión en cada instalación.</strong>"></p>
+      <p data-en="The owner pays €395 for setup. You earn €39.50 per property. Thirty villas? That's nearly €1,200 in your pocket for making introductions." data-es="El propietario paga 395€ por la instalación. Tú ganas 39,50€ por propiedad. ¿Treinta villas? Son casi 1.200€ en tu bolsillo por hacer presentaciones."></p>
     </div>
 
-    <h2>Your own dashboard -- if you want one</h2>
+    <h2 data-en="Your own dashboard -- if you want one" data-es="Tu propio panel de control -- si lo quieres"></h2>
 
-    <p>We can give you an admin account to view all your LeakGuarded properties in one place -- check usage, see alerts, keep an eye on things. Or you can leave it entirely to us. Your call.</p>
+    <p data-en="We can give you an admin account to view all your LeakGuarded properties in one place -- check usage, see alerts, keep an eye on things. Or you can leave it entirely to us. Your call." data-es="Podemos darte una cuenta de administrador para ver todas tus propiedades con LeakGuard en un solo sitio -- consultar consumos, ver alertas, tenerlo todo controlado. O puedes dejárnoslo todo a nosotros. Tú decides."></p>
 
     <div class="img-block">
       <img src="img/dashboard-analytics.png" alt="LeakGuard full analytics view">
-      <div class="cap">Full analytics: weekly comparison, hourly usage profile, and key stats at a glance.</div>
+      <div class="cap" data-en="Full analytics: weekly comparison, hourly usage profile, and key stats at a glance." data-es="Analíticas completas: comparación semanal, perfil de consumo por horas y estadísticas clave de un vistazo."></div>
     </div>
 
-    <h3>Simple pricing for the owner</h3>
+    <h3 data-en="Simple pricing for the owner" data-es="Precios sencillos para el propietario"></h3>
 
     <div class="price-table">
-      <div class="price-row"><span>Installation and setup</span><span>&euro;395 one-off</span></div>
-      <div class="price-row"><span>LeakGuard subscription (monitoring, alerts, alarms)</span><span>&euro;60/year</span></div>
-      <div class="price-row"><span>Plus plans with full analytics</span><span>Available</span></div>
+      <div class="price-row"><span data-en="Installation and setup" data-es="Instalación y configuración"></span><span>&euro;395</span></div>
+      <div class="price-row"><span data-en="LeakGuard subscription (monitoring, alerts, alarms)" data-es="Suscripción LeakGuard (monitorización, alertas, alarmas)"></span><span>&euro;60/<span data-en="year" data-es="año"></span></span></div>
+      <div class="price-row"><span data-en="Plus plans with full analytics" data-es="Planes Plus con analíticas completas"></span><span data-en="Available" data-es="Disponible"></span></div>
     </div>
-    <p style="font-size:0.82rem;color:#888;margin-top:0.4rem">Installation subject to survey.</p>
+    <p style="font-size:0.82rem;color:#888;margin-top:0.4rem" data-en="Installation subject to survey." data-es="Instalación sujeta a inspección previa."></p>
 
     <div class="band">
       <img src="img/mascot.png" alt="LeakGuard">
       <div class="band-overlay">
-        <p>Hundreds of leaks found. <em>Thousands saved.</em></p>
+        <p data-en="Hundreds of leaks found. <em>Thousands saved.</em>" data-es="Cientos de fugas encontradas. <em>Miles ahorrados.</em>"></p>
       </div>
     </div>
 
-    <p>Being able to tell your clients <strong>"we work with Canary Detect to make sure your water is monitored around the clock"</strong> is a genuine differentiator. It sets you apart when pitching new owners or retaining existing ones.</p>
+    <p data-en="Being able to tell your clients <strong>&quot;we work with Canary Detect to make sure your water is monitored around the clock&quot;</strong> is a genuine differentiator. It sets you apart when pitching new owners or retaining existing ones." data-es="Poder decir a tus clientes <strong>&quot;trabajamos con Canary Detect para asegurar que el agua de tu propiedad esté monitorizada las 24 horas&quot;</strong> es un diferenciador real. Te distingue a la hora de captar nuevos propietarios o fidelizar los actuales."></p>
 
-    <p>We can also provide you with ready-made template emails and information to send straight to your clients -- so you don't have to write a thing.</p>
+    <p data-en="We can also provide you with ready-made template emails and information to send straight to your clients -- so you don't have to write a thing." data-es="También podemos proporcionarte emails y material informativo listos para enviar directamente a tus clientes -- para que no tengas que redactar nada."></p>
 
     <!-- CTA -->
     <div class="cta-box">
-      <p>Interested? Let's have a quick chat about your portfolio.</p>
+      <p data-en="Interested? Let's have a quick chat about your portfolio." data-es="¿Te interesa? Hablemos sobre tu cartera de propiedades."></p>
       <div class="btns">
-        <a href="https://wa.me/34711051071?text=Hi%2C%20I%20manage%20villas%20in%20Lanzarote%20and%20I%27m%20interested%20in%20the%20LeakGuard%20partner%20programme." class="btn-wa">
+        <a id="wa-btn" href="https://wa.me/34711051071?text=Hi%2C%20I%20manage%20villas%20in%20Lanzarote%20and%20I%27m%20interested%20in%20the%20LeakGuard%20partner%20programme." class="btn-wa">
           <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
-          WhatsApp us
+          <span data-en="WhatsApp us" data-es="WhatsApp"></span>
         </a>
         <a href="tel:+34711051071" class="btn-link">
           <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z"/></svg>
@@ -399,6 +441,48 @@
   </div>
 
 </div>
+
+<script>
+  function setLang(lang) {
+    document.documentElement.lang = lang;
+
+    // Update toggle buttons
+    document.querySelectorAll('.lang-btn').forEach(function(btn) {
+      btn.classList.toggle('active', btn.dataset.lang === lang);
+    });
+
+    // Update all elements with data-en / data-es attributes
+    document.querySelectorAll('[data-' + lang + ']').forEach(function(el) {
+      el.innerHTML = el.getAttribute('data-' + lang);
+    });
+
+    // Update page title
+    document.title = lang === 'es'
+      ? 'Programa de Colaboración LeakGuard — Canary Detect'
+      : 'LeakGuard Partner Programme — Canary Detect';
+
+    // Update WhatsApp link
+    var waBtn = document.getElementById('wa-btn');
+    if (waBtn) {
+      waBtn.href = lang === 'es'
+        ? 'https://wa.me/34711051071?text=Hola%2C%20gestiono%20villas%20en%20Lanzarote%20y%20me%20interesa%20el%20programa%20de%20colaboraci%C3%B3n%20LeakGuard.'
+        : 'https://wa.me/34711051071?text=Hi%2C%20I%20manage%20villas%20in%20Lanzarote%20and%20I%27m%20interested%20in%20the%20LeakGuard%20partner%20programme.';
+    }
+
+    // Update URL parameter without reload
+    var url = new URL(window.location);
+    url.searchParams.set('lang', lang);
+    history.replaceState(null, '', url);
+
+    // Scroll to top on language switch
+    window.scrollTo(0, 0);
+  }
+
+  // Check URL for language parameter (?lang=es or ?lang=en)
+  var params = new URLSearchParams(window.location.search);
+  var urlLang = params.get('lang');
+  setLang(urlLang === 'es' ? 'es' : 'en');
+</script>
 
 </body>
 </html>
