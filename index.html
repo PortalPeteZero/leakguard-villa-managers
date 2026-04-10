@@ -4,940 +4,320 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>LeakGuard for Villa Managers — Canary Detect</title>
+  <meta name="robots" content="noindex, nofollow">
   <meta name="description" content="Partner with Canary Detect to offer 24/7 water monitoring to your villa clients. Earn commission, elevate your service, and stop getting blamed for hidden leaks.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
     :root {
       --navy: #0f172a;
       --navy-mid: #1e293b;
-      --navy-light: #334155;
       --orange: #f7951d;
       --orange-hover: #e5880f;
-      --orange-bg: #fef7ed;
-      --orange-border: #fde9c8;
       --teal: #14b8a6;
-      --teal-bg: #f0fdfa;
-      --teal-border: #ccfbf1;
-      --bg: #f8f9fa;
+      --bg: #f8fafc;
       --white: #ffffff;
-      --text: #1a1a1a;
-      --text-secondary: #4a5568;
-      --text-light: #718096;
+      --text: #1e293b;
+      --text-mid: #475569;
+      --text-light: #94a3b8;
       --border: #e2e8f0;
-      --border-light: #edf2f7;
-      --font-heading: 'Montserrat', -apple-system, sans-serif;
-      --font-body: 'Open Sans', -apple-system, sans-serif;
+      --heading: 'Montserrat', sans-serif;
+      --body: 'Open Sans', sans-serif;
     }
 
     html { scroll-behavior: smooth; }
 
     body {
-      font-family: var(--font-body);
-      background: var(--bg);
+      font-family: var(--body);
       color: var(--text);
       line-height: 1.7;
+      background: var(--bg);
       -webkit-font-smoothing: antialiased;
-      overflow-x: hidden;
     }
 
     /* ── HEADER ── */
-    .site-header {
+    header {
       background: var(--navy);
-      padding: 1rem 2rem;
+      padding: 0.8rem 2rem;
       position: sticky;
       top: 0;
       z-index: 100;
-      backdrop-filter: blur(8px);
     }
-
     .header-inner {
-      max-width: 960px;
+      max-width: 1000px;
       margin: 0 auto;
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
-
-    .header-logo { height: 40px; width: auto; }
-
-    .header-right { display: flex; align-items: center; gap: 1.2rem; }
-
-    .header-link {
-      color: rgba(255,255,255,0.7);
-      text-decoration: none;
-      font-size: 0.85rem;
-      font-weight: 500;
-      transition: color 0.2s;
-    }
-
+    .header-logo { height: 36px; }
+    .header-right { display: flex; align-items: center; gap: 1.5rem; }
+    .header-link { color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.82rem; font-weight: 500; }
     .header-link:hover { color: white; }
-
     .header-cta {
-      background: var(--orange);
-      color: var(--navy);
-      font-weight: 700;
-      font-size: 0.82rem;
-      padding: 0.5rem 1.2rem;
-      border-radius: 6px;
-      text-decoration: none;
-      letter-spacing: 0.02em;
-      transition: all 0.2s;
+      background: var(--orange); color: var(--navy); font-weight: 700; font-size: 0.8rem;
+      padding: 0.45rem 1.1rem; border-radius: 5px; text-decoration: none;
     }
-
     .header-cta:hover { background: var(--orange-hover); }
 
     /* ── HERO ── */
     .hero {
-      background: linear-gradient(180deg, var(--navy) 0%, var(--navy-mid) 100%);
-      padding: 5rem 2rem 0;
+      background: var(--navy);
+      padding: 4rem 2rem 0;
       color: white;
-      position: relative;
-      overflow: hidden;
     }
-
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: -120px;
-      right: -80px;
-      width: 400px;
-      height: 400px;
-      background: radial-gradient(circle, rgba(247,149,29,0.08) 0%, transparent 70%);
-      border-radius: 50%;
-      animation: heroGlow 6s ease-in-out infinite alternate;
-    }
-
-    .hero::after {
-      content: '';
-      position: absolute;
-      bottom: -60px;
-      left: -40px;
-      width: 300px;
-      height: 300px;
-      background: radial-gradient(circle, rgba(20,184,166,0.06) 0%, transparent 70%);
-      border-radius: 50%;
-      animation: heroGlow 8s ease-in-out infinite alternate-reverse;
-    }
-
-    @keyframes heroGlow {
-      0% { transform: scale(1) translate(0, 0); opacity: 0.6; }
-      100% { transform: scale(1.3) translate(20px, -10px); opacity: 1; }
-    }
-
     .hero-inner {
-      max-width: 960px;
+      max-width: 1000px;
       margin: 0 auto;
-      position: relative;
-      z-index: 2;
-    }
-
-    .hero-content {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 3rem;
-      align-items: center;
+      align-items: end;
     }
-
-    @media (max-width: 720px) {
-      .hero-content { grid-template-columns: 1fr; }
-    }
-
-    .hero-label {
+    .hero-text { padding-bottom: 4rem; }
+    .hero-badge {
       display: inline-block;
-      font-family: var(--font-heading);
-      font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--orange);
-      background: rgba(247, 149, 29, 0.12);
-      border: 1px solid rgba(247, 149, 29, 0.25);
-      padding: 0.35rem 1rem;
-      border-radius: 100px;
-      margin-bottom: 2rem;
-      animation: fadeSlideDown 0.6s ease-out both;
+      font-family: var(--heading); font-size: 0.68rem; font-weight: 700;
+      letter-spacing: 0.12em; text-transform: uppercase; color: var(--orange);
+      border: 1px solid rgba(247,149,29,0.3); padding: 0.3rem 0.9rem;
+      border-radius: 100px; margin-bottom: 1.5rem;
     }
-
     .hero h1 {
-      font-family: var(--font-heading);
-      font-size: clamp(2rem, 5vw, 2.8rem);
-      font-weight: 700;
-      line-height: 1.2;
-      letter-spacing: -0.02em;
-      margin-bottom: 1.5rem;
-      animation: fadeSlideDown 0.6s ease-out 0.15s both;
+      font-family: var(--heading); font-size: clamp(1.8rem, 4vw, 2.6rem);
+      font-weight: 800; line-height: 1.15; margin-bottom: 1.2rem;
     }
-
     .hero h1 span { color: var(--orange); }
-
     .hero-sub {
-      font-size: 1.05rem;
-      color: rgba(255,255,255,0.75);
-      margin-bottom: 2.5rem;
-      line-height: 1.75;
-      animation: fadeSlideDown 0.6s ease-out 0.3s both;
+      color: rgba(255,255,255,0.65); font-size: 1rem; line-height: 1.7;
+      margin-bottom: 2rem; max-width: 440px;
     }
-
     .hero-cta {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      background: var(--orange);
-      color: var(--navy);
-      font-family: var(--font-heading);
-      font-weight: 700;
-      font-size: 0.92rem;
-      padding: 0.85rem 1.8rem;
-      border-radius: 6px;
-      text-decoration: none;
-      transition: all 0.2s ease;
-      animation: fadeSlideDown 0.6s ease-out 0.45s both;
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: var(--orange); color: var(--navy); font-family: var(--heading);
+      font-weight: 700; font-size: 0.88rem; padding: 0.75rem 1.5rem;
+      border-radius: 6px; text-decoration: none; transition: all 0.15s;
     }
-
-    .hero-cta:hover {
-      background: var(--orange-hover);
-      transform: translateY(-2px);
-      box-shadow: 0 8px 25px rgba(247, 149, 29, 0.35);
+    .hero-cta:hover { background: var(--orange-hover); transform: translateY(-1px); }
+    .hero-cta svg { width: 15px; height: 15px; }
+    .hero-img {
+      align-self: end;
     }
-
-    .hero-cta svg { width: 16px; height: 16px; }
-
-    @keyframes fadeSlideDown {
-      from { opacity: 0; transform: translateY(-16px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    /* Hero mascot image */
-    .hero-image {
-      animation: fadeSlideUp 0.8s ease-out 0.3s both;
-    }
-
-    .hero-image img {
+    .hero-img img {
       width: 100%;
+      max-width: 460px;
       height: auto;
-      border-radius: 12px;
-      filter: drop-shadow(0 20px 40px rgba(0,0,0,0.3));
+      display: block;
+      border-radius: 12px 12px 0 0;
+    }
+    @media (max-width: 720px) {
+      .hero-inner { grid-template-columns: 1fr; }
+      .hero-text { padding-bottom: 2rem; }
+      .hero-img { order: -1; }
+      .hero-img img { border-radius: 12px; max-width: 100%; }
     }
 
-    @keyframes fadeSlideUp {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
+    /* ── SECTION LAYOUT ── */
+    .w { max-width: 1000px; margin: 0 auto; padding: 0 2rem; }
+
+    section {
+      padding: 4rem 0;
     }
+    section + section { border-top: 1px solid var(--border); }
 
-    /* ── WAVE DIVIDER ── */
-    .wave-divider {
-      position: relative;
-      height: 80px;
-      background: var(--navy-mid);
-      overflow: hidden;
-    }
-
-    .wave-divider svg {
-      position: absolute;
-      bottom: 0;
-      width: 100%;
-      height: 80px;
-    }
-
-    .wave-divider .wave-back { animation: waveMove 12s linear infinite; }
-    .wave-divider .wave-front { animation: waveMove 8s linear infinite reverse; }
-
-    @keyframes waveMove {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
-    }
-
-    /* ── TRUST BAR ── */
-    .trust-bar {
-      background: var(--white);
-      border-bottom: 1px solid var(--border);
-      padding: 1.5rem 2rem;
-    }
-
-    .trust-bar-inner {
-      max-width: 960px;
-      margin: 0 auto;
-      display: flex;
-      justify-content: center;
-      gap: 3rem;
-      flex-wrap: wrap;
-    }
-
-    .trust-item {
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-      font-size: 0.85rem;
-      color: var(--text-light);
-      font-weight: 500;
-    }
-
-    .trust-icon {
-      width: 28px;
-      height: 28px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.85rem;
-      flex-shrink: 0;
-    }
-
-    .trust-icon.teal { background: var(--teal-bg); color: var(--teal); }
-    .trust-icon.orange { background: var(--orange-bg); color: var(--orange); }
-
-    /* ── SECTIONS ── */
-    .container { max-width: 960px; margin: 0 auto; padding: 0 2rem; }
-
-    .section {
-      padding: 4.5rem 0;
-      border-top: 1px solid var(--border);
-    }
-
-    .section-grid {
+    .two-col {
       display: grid;
-      grid-template-columns: 260px 1fr;
-      gap: 3rem;
+      grid-template-columns: 220px 1fr;
+      gap: 2.5rem;
       align-items: start;
     }
+    @media (max-width: 720px) { .two-col { grid-template-columns: 1fr; gap: 0.5rem; } }
 
-    .section-label {
-      font-family: var(--font-heading);
-      font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--text-light);
-      padding-top: 0.3rem;
+    .label {
+      font-family: var(--heading); font-size: 0.68rem; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-light);
+      padding-top: 0.2rem;
     }
-
-    .section-body h2 {
-      font-family: var(--font-heading);
-      font-size: 1.55rem;
-      font-weight: 700;
-      line-height: 1.3;
-      letter-spacing: -0.01em;
-      margin-bottom: 1.2rem;
+    .body h2 {
+      font-family: var(--heading); font-size: 1.45rem; font-weight: 700;
+      line-height: 1.3; margin-bottom: 1rem;
     }
-
-    .section-body p {
-      color: var(--text-secondary);
-      font-size: 1rem;
-      margin-bottom: 1rem;
-    }
-
-    .section-body p:last-child { margin-bottom: 0; }
-    .section-body strong { color: var(--text); font-weight: 600; }
-
-    @media (max-width: 720px) {
-      .section-grid { grid-template-columns: 1fr; gap: 0.6rem; }
-    }
+    .body p { color: var(--text-mid); margin-bottom: 0.9rem; }
+    .body p:last-child { margin-bottom: 0; }
+    .body strong { color: var(--text); }
 
     /* ── CARDS ── */
-    .card-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1rem;
-      margin-top: 1.5rem;
+    .cards {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; margin-top: 1.2rem;
     }
-
-    .card-grid .card-wide { grid-column: 1 / -1; }
-
-    @media (max-width: 560px) { .card-grid { grid-template-columns: 1fr; } }
+    .cards .wide { grid-column: 1 / -1; }
+    @media (max-width: 560px) { .cards { grid-template-columns: 1fr; } }
 
     .card {
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 1.4rem;
-      transition: all 0.3s ease;
-      position: relative;
-      overflow: hidden;
+      background: var(--white); border: 1px solid var(--border); border-radius: 8px;
+      padding: 1.2rem; transition: box-shadow 0.2s;
     }
-
-    .card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 3px;
-      background: linear-gradient(90deg, var(--teal), var(--orange));
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform 0.4s ease;
-    }
-
-    .card:hover::before { transform: scaleX(1); }
-
-    .card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 24px rgba(0,0,0,0.06);
-      border-color: transparent;
-    }
-
-    .card-icon {
-      width: 36px;
-      height: 36px;
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 0.8rem;
-      font-size: 1.1rem;
-    }
-
-    .card-icon.teal { background: var(--teal-bg); }
-    .card-icon.orange { background: var(--orange-bg); }
-
+    .card:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
     .card h3 {
-      font-family: var(--font-heading);
-      font-size: 0.95rem;
-      font-weight: 600;
-      margin-bottom: 0.35rem;
-      color: var(--text);
+      font-family: var(--heading); font-size: 0.88rem; font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+    .card p { font-size: 0.85rem; color: var(--text-light); margin: 0; line-height: 1.5; }
+    .card-dot {
+      width: 6px; height: 6px; border-radius: 50%; background: var(--teal);
+      display: inline-block; margin-bottom: 0.7rem;
     }
 
-    .card p {
-      font-size: 0.9rem;
-      color: var(--text-light);
-      margin-bottom: 0;
-      line-height: 1.6;
+    /* ── DASHBOARD IMAGES ── */
+    .dash {
+      margin-top: 1.5rem; border-radius: 10px; overflow: hidden;
+      border: 1px solid rgba(0,0,0,0.08); background: var(--navy);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.12);
     }
+    .dash img { width: 100%; display: block; }
+    .caption { font-size: 0.78rem; color: var(--text-light); margin-top: 0.5rem; font-style: italic; }
+
+    /* ── FULL-WIDTH IMAGE BREAK ── */
+    .img-break {
+      position: relative; overflow: hidden; height: 280px;
+    }
+    .img-break img {
+      width: 100%; height: 100%; object-fit: cover; display: block;
+    }
+    .img-break-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(180deg, rgba(15,23,42,0.4), rgba(15,23,42,0.75));
+      display: flex; align-items: center; justify-content: center;
+    }
+    .img-break-text {
+      text-align: center; color: white; padding: 2rem;
+    }
+    .img-break-text h2 {
+      font-family: var(--heading); font-size: clamp(1.2rem, 3vw, 1.7rem);
+      font-weight: 800; margin-bottom: 0.3rem;
+    }
+    .img-break-text h2 span { color: var(--orange); }
+    .img-break-text p { color: rgba(255,255,255,0.65); font-size: 0.95rem; }
 
     /* ── CHECK LIST ── */
-    .check-list { list-style: none; margin-top: 1.2rem; }
-
-    .check-list li {
-      padding: 0.6rem 0 0.6rem 2.2rem;
-      position: relative;
-      color: var(--text-secondary);
-      font-size: 1rem;
+    .checks { list-style: none; margin-top: 1rem; }
+    .checks li {
+      padding: 0.4rem 0 0.4rem 1.6rem; position: relative;
+      color: var(--text-mid); font-size: 0.95rem;
+    }
+    .checks li::before {
+      content: '\2713'; position: absolute; left: 0; top: 0.35rem;
+      color: var(--teal); font-weight: 700; font-size: 0.85rem;
     }
 
-    .check-list li::before {
-      content: '';
-      position: absolute;
-      left: 0;
-      top: 0.95rem;
-      width: 20px;
-      height: 20px;
-      border-radius: 50%;
-      background: var(--teal);
-      opacity: 0.15;
+    /* ── STAT ROW ── */
+    .stats {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.8rem; margin-top: 1.5rem;
     }
-
-    .check-list li::after {
-      content: '\2713';
-      position: absolute;
-      left: 4px;
-      top: 0.55rem;
-      font-size: 0.8rem;
-      color: var(--teal);
-      font-weight: 700;
-    }
-
-    /* ── STATS ── */
-    .stat-row {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1rem;
-      margin-top: 2rem;
-    }
-
-    @media (max-width: 560px) { .stat-row { grid-template-columns: 1fr; } }
-
+    @media (max-width: 560px) { .stats { grid-template-columns: 1fr; } }
     .stat {
-      background: var(--teal-bg);
-      border: 1px solid var(--teal-border);
-      border-radius: 8px;
-      padding: 1.4rem;
-      text-align: center;
-      transition: all 0.3s ease;
-      position: relative;
-      overflow: hidden;
+      background: #f0fdfa; border: 1px solid #ccfbf1; border-radius: 8px;
+      padding: 1.2rem; text-align: center;
     }
-
-    .stat::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(135deg, transparent 40%, rgba(20,184,166,0.05));
-    }
-
-    .stat:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(20,184,166,0.12); }
-
     .stat-num {
-      font-family: var(--font-heading);
-      font-size: 1.8rem;
-      font-weight: 900;
-      color: var(--teal);
-      line-height: 1;
-      position: relative;
-      z-index: 1;
+      font-family: var(--heading); font-size: 1.6rem; font-weight: 900;
+      color: var(--teal); line-height: 1;
     }
-
-    .stat-label {
-      font-size: 0.78rem;
-      color: var(--text-light);
-      margin-top: 0.35rem;
-      position: relative;
-      z-index: 1;
-    }
+    .stat-sub { font-size: 0.75rem; color: var(--text-light); margin-top: 0.2rem; }
 
     /* ── TOGGLE OPTIONS ── */
-    .toggle-box {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1rem;
-      margin-top: 1.5rem;
+    .options {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; margin-top: 1.2rem;
     }
-
-    @media (max-width: 500px) { .toggle-box { grid-template-columns: 1fr; } }
-
-    .toggle-option {
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 1.8rem;
-      text-align: center;
-      transition: all 0.3s ease;
-      cursor: default;
+    @media (max-width: 500px) { .options { grid-template-columns: 1fr; } }
+    .opt {
+      background: var(--white); border: 1px solid var(--border); border-radius: 8px;
+      padding: 1.5rem; text-align: center; transition: border-color 0.2s;
     }
+    .opt:hover { border-color: var(--orange); }
+    .opt-icon { font-size: 1.8rem; margin-bottom: 0.5rem; display: block; }
+    .opt h3 { font-family: var(--heading); font-size: 0.9rem; font-weight: 600; margin-bottom: 0.2rem; }
+    .opt p { font-size: 0.82rem; color: var(--text-light); margin: 0; }
 
-    .toggle-option:hover {
-      border-color: var(--orange);
-      box-shadow: 0 4px 16px rgba(247,149,29,0.1);
-      transform: translateY(-2px);
+    /* ── COMMISSION ── */
+    .comm {
+      background: linear-gradient(135deg, #fef7ed, #fff7ed);
+      border: 1px solid #fde9c8; border-radius: 10px; padding: 1.8rem;
+      margin-top: 1.2rem;
     }
-
-    .toggle-option h3 {
-      font-family: var(--font-heading);
-      font-size: 0.95rem;
-      font-weight: 600;
-      margin-bottom: 0.35rem;
+    .comm .big {
+      font-family: var(--heading); font-size: 2.4rem; font-weight: 900;
+      color: var(--orange); line-height: 1; margin-bottom: 0.3rem;
     }
+    .comm p { color: var(--text-mid); font-size: 0.92rem; margin: 0; }
 
-    .toggle-option p { font-size: 0.88rem; color: var(--text-light); margin: 0; }
-
-    .toggle-icon {
-      font-size: 2rem;
-      margin-bottom: 0.8rem;
-      display: block;
-      animation: gentleBounce 3s ease-in-out infinite;
+    /* ── PRICING ── */
+    .price-table {
+      margin-top: 1.2rem; background: var(--white); border: 1px solid var(--border);
+      border-radius: 8px; overflow: hidden;
     }
-
-    .toggle-option:nth-child(2) .toggle-icon { animation-delay: 1.5s; }
-
-    @keyframes gentleBounce {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-6px); }
+    .price-row {
+      display: flex; justify-content: space-between; align-items: baseline;
+      padding: 0.85rem 1.3rem; border-bottom: 1px solid #f1f5f9;
     }
+    .price-row:last-child { border-bottom: none; }
+    .price-item { color: var(--text-mid); font-size: 0.9rem; }
+    .price-val { font-family: var(--heading); font-weight: 700; font-size: 0.9rem; }
+    .price-note { font-size: 0.8rem; color: var(--text-light); margin-top: 0.6rem; }
 
-    /* ── COMMISSION BOX ── */
-    .commission-box {
-      background: linear-gradient(135deg, var(--orange-bg) 0%, #fff7ed 100%);
-      border: 1px solid var(--orange-border);
-      border-radius: 12px;
-      padding: 2rem;
-      margin-top: 1.5rem;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .commission-box::before {
-      content: '';
-      position: absolute;
-      top: -30px;
-      right: -30px;
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      background: rgba(247,149,29,0.08);
-    }
-
-    .commission-box .big-num {
-      font-family: var(--font-heading);
-      font-size: 2.8rem;
-      font-weight: 900;
-      color: var(--orange);
-      line-height: 1;
-      margin-bottom: 0.5rem;
-      position: relative;
-    }
-
-    .commission-box p { color: var(--text-secondary); font-size: 0.95rem; margin: 0; position: relative; }
-
-    /* ── PRICING TABLE ── */
-    .pricing-table {
-      margin-top: 1.5rem;
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      overflow: hidden;
-    }
-
-    .pricing-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      padding: 1rem 1.4rem;
-      border-bottom: 1px solid var(--border-light);
-      transition: background 0.2s;
-    }
-
-    .pricing-row:hover { background: #fafbfc; }
-    .pricing-row:last-child { border-bottom: none; }
-    .pricing-item { color: var(--text-secondary); font-size: 0.93rem; }
-
-    .pricing-price {
-      font-family: var(--font-heading);
-      font-weight: 700;
-      color: var(--text);
-      font-size: 0.93rem;
-    }
-
-    .pricing-note { font-size: 0.83rem; color: var(--text-light); margin-top: 0.8rem; }
-
-    /* ── DASHBOARD PREVIEW ── */
-    .dashboard-preview {
-      margin-top: 2rem;
-      border-radius: 12px;
-      overflow: hidden;
-      border: 1px solid rgba(255,255,255,0.1);
-      background: var(--navy);
-      box-shadow: 0 12px 40px rgba(0,0,0,0.15);
-      transition: all 0.4s ease;
-    }
-
-    .dashboard-preview:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 20px 50px rgba(0,0,0,0.2);
-    }
-
-    .dashboard-preview img {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
-
-    .dashboard-caption {
-      font-size: 0.82rem;
-      color: var(--text-light);
-      margin-top: 0.6rem;
-      font-style: italic;
-    }
-
-    /* ── FULL-WIDTH BREAK IMAGE ── */
-    .break-image {
-      padding: 0;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .break-image img {
-      width: 100%;
-      height: 300px;
-      object-fit: cover;
-      display: block;
-    }
-
-    .break-image-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(180deg, rgba(15,23,42,0.5) 0%, rgba(15,23,42,0.8) 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .break-image-text {
-      text-align: center;
-      color: white;
-      padding: 2rem;
-    }
-
-    .break-image-text h2 {
-      font-family: var(--font-heading);
-      font-size: clamp(1.4rem, 3vw, 2rem);
-      font-weight: 800;
-      margin-bottom: 0.5rem;
-    }
-
-    .break-image-text h2 span { color: var(--orange); }
-
-    .break-image-text p {
-      color: rgba(255,255,255,0.7);
-      font-size: 1rem;
-      max-width: 400px;
-    }
-
-    /* ── FLOATING WATER DROPS (decoration) ── */
-    .drops-container {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      z-index: 0;
-      overflow: hidden;
-    }
-
-    .drop {
-      position: absolute;
-      width: 6px;
-      height: 8px;
-      background: radial-gradient(ellipse, rgba(20,184,166,0.2), rgba(20,184,166,0.05));
-      border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
-      animation: dropFall linear infinite;
-      opacity: 0;
-    }
-
-    .drop:nth-child(1) { left: 10%; animation-duration: 14s; animation-delay: 0s; }
-    .drop:nth-child(2) { left: 25%; animation-duration: 18s; animation-delay: 3s; width: 4px; height: 6px; }
-    .drop:nth-child(3) { left: 45%; animation-duration: 16s; animation-delay: 6s; }
-    .drop:nth-child(4) { left: 65%; animation-duration: 20s; animation-delay: 2s; width: 5px; height: 7px; }
-    .drop:nth-child(5) { left: 80%; animation-duration: 15s; animation-delay: 8s; }
-    .drop:nth-child(6) { left: 92%; animation-duration: 17s; animation-delay: 4s; width: 4px; height: 6px; }
-
-    @keyframes dropFall {
-      0% { top: -10px; opacity: 0; transform: translateX(0); }
-      10% { opacity: 0.5; }
-      90% { opacity: 0.3; }
-      100% { top: 105vh; opacity: 0; transform: translateX(20px); }
-    }
-
-    /* ── CTA SECTION ── */
+    /* ── CTA FOOTER ── */
     .cta-section {
-      background: linear-gradient(180deg, var(--navy-mid) 0%, var(--navy) 100%);
-      padding: 5rem 0;
-      text-align: center;
-      color: white;
-      position: relative;
-      overflow: hidden;
+      background: var(--navy); color: white; padding: 4rem 0; text-align: center;
+      border-top: none;
     }
-
-    .cta-section::before {
-      content: '';
-      position: absolute;
-      width: 500px;
-      height: 500px;
-      background: radial-gradient(circle, rgba(247,149,29,0.06) 0%, transparent 70%);
-      border-radius: 50%;
-      top: -200px;
-      left: 50%;
-      transform: translateX(-50%);
-      animation: ctaPulse 4s ease-in-out infinite alternate;
-    }
-
-    @keyframes ctaPulse {
-      0% { transform: translateX(-50%) scale(1); opacity: 0.5; }
-      100% { transform: translateX(-50%) scale(1.4); opacity: 1; }
-    }
-
     .cta-section h2 {
-      font-family: var(--font-heading);
-      font-size: 1.8rem;
-      font-weight: 700;
-      margin-bottom: 0.8rem;
-      position: relative;
+      font-family: var(--heading); font-size: 1.6rem; font-weight: 700;
+      margin-bottom: 0.6rem;
     }
-
-    .cta-section > .container > p {
-      color: rgba(255,255,255,0.65);
-      font-size: 1rem;
-      max-width: 460px;
-      margin: 0 auto 2rem;
-      position: relative;
+    .cta-section > .w > p {
+      color: rgba(255,255,255,0.55); max-width: 420px;
+      margin: 0 auto 1.8rem; font-size: 0.95rem;
     }
-
-    .cta-buttons {
-      display: flex;
-      gap: 0.7rem;
-      justify-content: center;
-      flex-wrap: wrap;
-      position: relative;
-    }
+    .cta-btns { display: flex; gap: 0.6rem; justify-content: center; flex-wrap: wrap; }
 
     .btn-primary {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.45rem;
-      background: var(--orange);
-      color: var(--navy);
-      font-family: var(--font-heading);
-      font-weight: 700;
-      padding: 0.85rem 1.6rem;
-      border-radius: 6px;
-      text-decoration: none;
-      font-size: 0.9rem;
-      transition: all 0.2s ease;
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      background: var(--orange); color: var(--navy); font-family: var(--heading);
+      font-weight: 700; padding: 0.75rem 1.4rem; border-radius: 6px;
+      text-decoration: none; font-size: 0.85rem; transition: all 0.15s;
     }
-
-    .btn-primary:hover {
-      background: var(--orange-hover);
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(247, 149, 29, 0.35);
+    .btn-primary:hover { background: var(--orange-hover); }
+    .btn-ghost {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      background: rgba(255,255,255,0.06); color: white; font-family: var(--heading);
+      font-weight: 600; padding: 0.75rem 1.4rem; border-radius: 6px;
+      text-decoration: none; font-size: 0.85rem; border: 1px solid rgba(255,255,255,0.12);
+      transition: all 0.15s;
     }
-
-    .btn-outline {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.45rem;
-      background: rgba(255,255,255,0.08);
-      color: white;
-      font-family: var(--font-heading);
-      font-weight: 600;
-      padding: 0.85rem 1.6rem;
-      border-radius: 6px;
-      text-decoration: none;
-      font-size: 0.9rem;
-      border: 1px solid rgba(255,255,255,0.15);
-      transition: all 0.2s;
-    }
-
-    .btn-outline:hover { background: rgba(255,255,255,0.12); border-color: rgba(255,255,255,0.3); }
-    .btn-outline svg, .btn-primary svg { width: 16px; height: 16px; }
+    .btn-ghost:hover { background: rgba(255,255,255,0.1); }
+    .btn-primary svg, .btn-ghost svg { width: 15px; height: 15px; }
 
     /* ── FOOTER ── */
-    .site-footer {
-      background: var(--navy);
-      color: rgba(255,255,255,0.6);
-      padding: 3rem 2rem;
-      border-top: 1px solid rgba(255,255,255,0.06);
+    footer {
+      background: var(--navy); border-top: 1px solid rgba(255,255,255,0.06);
+      padding: 2rem;
     }
-
     .footer-inner {
-      max-width: 960px;
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 1.5rem;
+      max-width: 1000px; margin: 0 auto; display: flex;
+      justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;
     }
-
-    .footer-left { display: flex; align-items: center; gap: 1rem; }
-    .footer-logo { height: 32px; width: auto; }
-
-    .footer-text p {
-      font-size: 0.82rem;
-      color: rgba(255,255,255,0.5);
-      margin: 0;
-      line-height: 1.5;
-    }
-
+    .footer-left { display: flex; align-items: center; gap: 0.8rem; }
+    .footer-logo { height: 28px; }
+    .footer-text { font-size: 0.78rem; color: rgba(255,255,255,0.4); line-height: 1.5; }
     .footer-text a { color: var(--orange); text-decoration: none; }
-
-    .footer-right {
-      font-size: 0.78rem;
-      color: rgba(255,255,255,0.35);
-    }
-
-    /* ── ANIMATIONS ── */
-    .fade-in {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1);
-    }
-
-    .fade-in.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .fade-in-left {
-      opacity: 0;
-      transform: translateX(-30px);
-      transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1);
-    }
-
-    .fade-in-left.visible {
-      opacity: 1;
-      transform: translateX(0);
-    }
-
-    .fade-in-right {
-      opacity: 0;
-      transform: translateX(30px);
-      transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1);
-    }
-
-    .fade-in-right.visible {
-      opacity: 1;
-      transform: translateX(0);
-    }
-
-    .scale-in {
-      opacity: 0;
-      transform: scale(0.92);
-      transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
-    }
-
-    .scale-in.visible {
-      opacity: 1;
-      transform: scale(1);
-    }
-
-    /* Staggered children */
-    .stagger-children > * {
-      opacity: 0;
-      transform: translateY(12px);
-      transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
-    }
-
-    .stagger-children.visible > *:nth-child(1) { transition-delay: 0s; opacity: 1; transform: translateY(0); }
-    .stagger-children.visible > *:nth-child(2) { transition-delay: 0.08s; opacity: 1; transform: translateY(0); }
-    .stagger-children.visible > *:nth-child(3) { transition-delay: 0.16s; opacity: 1; transform: translateY(0); }
-    .stagger-children.visible > *:nth-child(4) { transition-delay: 0.24s; opacity: 1; transform: translateY(0); }
-    .stagger-children.visible > *:nth-child(5) { transition-delay: 0.32s; opacity: 1; transform: translateY(0); }
-    .stagger-children.visible > *:nth-child(6) { transition-delay: 0.4s; opacity: 1; transform: translateY(0); }
-
-    /* ── PULSE RING (for stats) ── */
-    @keyframes pulseRing {
-      0% { box-shadow: 0 0 0 0 rgba(20,184,166,0.2); }
-      70% { box-shadow: 0 0 0 8px rgba(20,184,166,0); }
-      100% { box-shadow: 0 0 0 0 rgba(20,184,166,0); }
-    }
-
-    .stat:nth-child(1) { animation: pulseRing 3s ease-in-out infinite; }
-    .stat:nth-child(2) { animation: pulseRing 3s ease-in-out 1s infinite; }
-    .stat:nth-child(3) { animation: pulseRing 3s ease-in-out 2s infinite; }
-
-    /* ── HIGHLIGHT LINE ANIMATION ── */
-    .highlight-line {
-      display: inline;
-      background-image: linear-gradient(120deg, rgba(247,149,29,0.15) 0%, rgba(247,149,29,0.15) 100%);
-      background-repeat: no-repeat;
-      background-size: 0% 100%;
-      background-position: 0 88%;
-      transition: background-size 0.6s ease;
-    }
-
-    .visible .highlight-line {
-      background-size: 100% 35%;
-    }
+    .footer-right { font-size: 0.74rem; color: rgba(255,255,255,0.25); }
   </style>
 </head>
 <body>
 
-  <!-- Floating water drops decoration -->
-  <div class="drops-container">
-    <div class="drop"></div>
-    <div class="drop"></div>
-    <div class="drop"></div>
-    <div class="drop"></div>
-    <div class="drop"></div>
-    <div class="drop"></div>
-  </div>
-
-  <!-- ── HEADER ── -->
-  <header class="site-header">
+  <header>
     <div class="header-inner">
       <img src="img/logo-dark-bg.png" alt="Canary Detect" class="header-logo">
       <div class="header-right">
@@ -947,262 +327,230 @@
     </div>
   </header>
 
-  <!-- ── HERO ── -->
-  <section class="hero">
+  <div class="hero">
     <div class="hero-inner">
-      <div class="hero-content">
-        <div>
-          <div class="hero-label">LeakGuard Partner Programme</div>
-          <h1>Stop getting blamed for <span>invisible leaks</span></h1>
-          <p class="hero-sub">You manage the villas. We monitor the water. When a hidden leak surfaces, you're the hero who spotted it -- not the scapegoat who missed it.</p>
-          <a href="#contact" class="hero-cta">
-            Let's talk about your portfolio
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg>
-          </a>
-        </div>
-        <div class="hero-image">
-          <img src="img/detective-cartoon.png" alt="Canary Detect leak detectives cornering a water leak -- nowhere to run">
-        </div>
+      <div class="hero-text">
+        <div class="hero-badge">LeakGuard Partner Programme</div>
+        <h1>Stop getting blamed for <span>invisible leaks</span></h1>
+        <p class="hero-sub">You manage the villas. We monitor the water. When a hidden leak surfaces, you're the hero who spotted it -- not the scapegoat who missed it.</p>
+        <a href="#contact" class="hero-cta">
+          Let's talk about your portfolio
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg>
+        </a>
       </div>
-    </div>
-  </section>
-
-  <!-- ── WAVE DIVIDER ── -->
-  <div class="wave-divider">
-    <svg viewBox="0 0 2400 80" preserveAspectRatio="none">
-      <path class="wave-back" d="M0,40 C400,80 800,0 1200,40 C1600,80 2000,0 2400,40 L2400,80 L0,80 Z" fill="rgba(248,249,250,0.5)"/>
-      <path class="wave-front" d="M0,50 C300,20 600,70 1200,50 C1800,30 2100,60 2400,50 L2400,80 L0,80 Z" fill="#f8f9fa"/>
-    </svg>
-  </div>
-
-  <!-- ── TRUST BAR ── -->
-  <div class="trust-bar fade-in">
-    <div class="trust-bar-inner">
-      <div class="trust-item">
-        <div class="trust-icon teal">&#128274;</div>
-        24/7 cloud monitoring
-      </div>
-      <div class="trust-item">
-        <div class="trust-icon orange">&#128225;</div>
-        No WiFi needed -- cellular
-      </div>
-      <div class="trust-item">
-        <div class="trust-icon teal">&#9889;</div>
-        Instant phone alerts
-      </div>
-      <div class="trust-item">
-        <div class="trust-icon orange">&#128736;</div>
-        We handle everything
+      <div class="hero-img">
+        <img src="img/detective-cartoon.png" alt="Canary Detect leak detectives -- nowhere to run">
       </div>
     </div>
   </div>
 
-  <div class="container">
-
-    <!-- ── THE PAIN ── -->
-    <div class="section fade-in">
-      <div class="section-grid">
-        <div class="section-label fade-in-left">The problem</div>
-        <div class="section-body fade-in-right">
-          <h2>The bill arrives. The walls bloom. And somehow <span class="highlight-line">it's your fault.</span></h2>
+  <!-- THE PROBLEM -->
+  <section>
+    <div class="w">
+      <div class="two-col">
+        <div class="label">The problem</div>
+        <div class="body">
+          <h2>The bill arrives. The walls bloom. And somehow it's your fault.</h2>
           <p>When a hidden leak surfaces -- a shock water bill, damp creeping through plaster -- the owner's first instinct is to point at the management company. <em>"How did you not spot this?"</em></p>
           <p>But nobody could have. The pipe was underground, the joint was behind a wall, the cistern was trickling silently for weeks. In Lanzarote, water bills arrive every two months. By the time anyone notices, the damage is done and the relationship is strained.</p>
           <p>We've attended hundreds of these jobs. We know exactly how it plays out -- because we're the ones called in to find the leak after it's too late.</p>
         </div>
       </div>
     </div>
+  </section>
 
-    <!-- ── WATER INTELLIGENCE ── -->
-    <div class="section fade-in">
-      <div class="section-grid">
-        <div class="section-label fade-in-left">Beyond leak detection</div>
-        <div class="section-body">
-          <h2>It's not just about leaks. It's about <span class="highlight-line">knowing what's happening</span> with water.</h2>
+  <!-- BEYOND LEAK DETECTION -->
+  <section>
+    <div class="w">
+      <div class="two-col">
+        <div class="label">Beyond leak detection</div>
+        <div class="body">
+          <h2>It's not just about leaks. It's about knowing what's happening with water.</h2>
           <p>LeakGuard monitors total water consumption around the clock. That means it catches far more than burst pipes.</p>
-          <div class="card-grid stagger-children">
+          <div class="cards">
             <div class="card">
-              <div class="card-icon teal">&#127754;</div>
+              <div class="card-dot"></div>
               <h3>Overnight flow</h3>
               <p>Water running when the property should be empty? You'll know immediately.</p>
             </div>
             <div class="card">
-              <div class="card-icon orange">&#128688;</div>
+              <div class="card-dot"></div>
               <h3>Passing toilets</h3>
               <p>A cistern that won't stop filling. Invisible, silent, expensive over weeks.</p>
             </div>
             <div class="card">
-              <div class="card-icon teal">&#128167;</div>
+              <div class="card-dot"></div>
               <h3>Taps and hoses left on</h3>
               <p>A guest checks out and leaves the garden hose running. Flagged the same day.</p>
             </div>
             <div class="card">
-              <div class="card-icon orange">&#127946;</div>
+              <div class="card-dot"></div>
               <h3>Pool leak detection</h3>
               <p>Weekly water use trending up? Could be a slow pool leak. The data tells the story.</p>
             </div>
-            <div class="card card-wide">
-              <div class="card-icon teal">&#127760;</div>
+            <div class="card wide">
+              <div class="card-dot"></div>
               <h3>A complete picture -- without setting foot in the property</h3>
               <p>Daily consumption patterns analysed automatically. You know what's happening at every property in your portfolio, from anywhere.</p>
             </div>
           </div>
-
-          <!-- Dashboard screenshot: monthly view -->
-          <div class="dashboard-preview scale-in">
-            <img src="img/dashboard-monthly.png" alt="LeakGuard dashboard showing daily water usage with daytime and overnight breakdown">
+          <div class="dash">
+            <img src="img/dashboard-monthly.png" alt="LeakGuard dashboard -- daily water usage with daytime and overnight breakdown">
           </div>
-          <p class="dashboard-caption">Real data from a LeakGuard-monitored property -- daily usage with daytime and overnight flow breakdown.</p>
+          <p class="caption">Real data from a LeakGuard-monitored property -- daily usage with daytime and overnight flow breakdown.</p>
         </div>
       </div>
     </div>
+  </section>
 
-    <!-- ── ELEVATE ── -->
-    <div class="section fade-in">
-      <div class="section-grid">
-        <div class="section-label fade-in-left">Stand out</div>
-        <div class="section-body fade-in-right">
+  <!-- ELEVATE -->
+  <section>
+    <div class="w">
+      <div class="two-col">
+        <div class="label">Stand out</div>
+        <div class="body">
           <h2>Elevate your service</h2>
           <p>Most villa management packages cover cleaning, pool maintenance, and key holding. Recommend LeakGuard to your clients and stand out.</p>
           <p>Being able to say <strong>"we work with Canary Detect to make sure your water is monitored around the clock"</strong> sets you apart when pitching new owners or retaining existing ones.</p>
         </div>
       </div>
     </div>
+  </section>
 
-  </div>
-
-  <!-- ── BREAK IMAGE: WANTED POSTER ── -->
-  <div class="break-image fade-in">
-    <img src="img/wanted-poster.png" alt="Wanted poster -- water leak crimes against your water bill">
-    <div class="break-image-overlay">
-      <div class="break-image-text">
+  <!-- IMAGE BREAK: WANTED -->
+  <div class="img-break">
+    <img src="img/wanted-poster.png" alt="Wanted -- water leak crimes">
+    <div class="img-break-overlay">
+      <div class="img-break-text">
         <h2>Hundreds of leaks found. <span>Thousands saved.</span></h2>
         <p>Canary Detect is Lanzarote's specialist leak detection company.</p>
       </div>
     </div>
   </div>
 
-  <div class="container">
-
-    <!-- ── WE HANDLE EVERYTHING ── -->
-    <div class="section fade-in">
-      <div class="section-grid">
-        <div class="section-label fade-in-left">Your partner, not your problem</div>
-        <div class="section-body">
+  <!-- WE HANDLE EVERYTHING -->
+  <section>
+    <div class="w">
+      <div class="two-col">
+        <div class="label">Your partner, not your problem</div>
+        <div class="body">
           <h2>We handle everything</h2>
           <p>Survey, install, monitoring, alerts -- all us. You make the introduction, we do the rest.</p>
-          <ul class="check-list stagger-children">
+          <ul class="checks">
             <li>Professional installation survey and device setup</li>
             <li>24/7 cloud monitoring and instant phone alerts</li>
             <li>If an alert triggers and nobody's available, we'll attend the property on your behalf</li>
             <li>Priority slots for leak surveys and repairs for partner management companies</li>
           </ul>
-          <div class="stat-row">
+          <div class="stats">
             <div class="stat">
               <div class="stat-num">24hrs</div>
-              <div class="stat-label">Leak detected vs 6-8 weeks</div>
+              <div class="stat-sub">Leak detected vs 6-8 weeks</div>
             </div>
             <div class="stat">
               <div class="stat-num">0</div>
-              <div class="stat-label">WiFi needed -- cellular only</div>
+              <div class="stat-sub">WiFi needed -- cellular only</div>
             </div>
             <div class="stat">
               <div class="stat-num">24/7</div>
-              <div class="stat-label">Cloud monitoring</div>
+              <div class="stat-sub">Cloud monitoring</div>
             </div>
           </div>
         </div>
       </div>
     </div>
+  </section>
 
-    <!-- ── DASHBOARD ── -->
-    <div class="section fade-in">
-      <div class="section-grid">
-        <div class="section-label fade-in-left">Your choice</div>
-        <div class="section-body">
+  <!-- DASHBOARD CHOICE -->
+  <section>
+    <div class="w">
+      <div class="two-col">
+        <div class="label">Your choice</div>
+        <div class="body">
           <h2>Hands-on or hands-off -- you decide</h2>
           <p>We can set you up with your own admin dashboard to view all your LeakGuarded properties in one place -- check usage, see alerts, keep an eye on things. Or leave it all to us.</p>
-          <div class="toggle-box">
-            <div class="toggle-option">
-              <span class="toggle-icon">&#128200;</span>
+          <div class="options">
+            <div class="opt">
+              <span class="opt-icon">&#128200;</span>
               <h3>I want to see it</h3>
               <p>Your own login. All your properties. Full visibility.</p>
             </div>
-            <div class="toggle-option">
-              <span class="toggle-icon">&#9749;</span>
+            <div class="opt">
+              <span class="opt-icon">&#9749;</span>
               <h3>Just handle it</h3>
               <p>We monitor, alert, and respond. You only hear from us when it matters.</p>
             </div>
           </div>
-
-          <!-- Dashboard screenshot: full analytics -->
-          <div class="dashboard-preview scale-in" style="margin-top: 1.5rem;">
-            <img src="img/dashboard-analytics.png" alt="LeakGuard full analytics view with weekly comparison, hourly profile, and usage stats">
+          <div class="dash" style="margin-top: 1.2rem;">
+            <img src="img/dashboard-analytics.png" alt="LeakGuard full analytics -- weekly comparison, hourly profile, usage stats">
           </div>
-          <p class="dashboard-caption">Full analytics: week-on-week comparison, hourly usage profile, and key stats at a glance.</p>
+          <p class="caption">Full analytics: week-on-week comparison, hourly usage profile, and key stats at a glance.</p>
         </div>
       </div>
     </div>
+  </section>
 
-  </div>
-
-  <!-- ── BREAK IMAGE: MASCOTS ── -->
-  <div class="break-image fade-in">
-    <img src="img/mascot.png" alt="LeakGuard water meter characters in Lanzarote">
-    <div class="break-image-overlay" style="background: linear-gradient(180deg, rgba(15,23,42,0.3) 0%, rgba(15,23,42,0.7) 100%);">
-      <div class="break-image-text">
+  <!-- IMAGE BREAK: MASCOTS -->
+  <div class="img-break">
+    <img src="img/mascot.png" alt="LeakGuard water meter characters">
+    <div class="img-break-overlay" style="background: linear-gradient(180deg, rgba(15,23,42,0.3), rgba(15,23,42,0.65));">
+      <div class="img-break-text">
         <h2>Meet the team that <span>never sleeps.</span></h2>
         <p>Monitoring every drop, every hour, every day.</p>
       </div>
     </div>
   </div>
 
-  <div class="container">
-
-    <!-- ── COMMISSION ── -->
-    <div class="section fade-in">
-      <div class="section-grid">
-        <div class="section-label fade-in-left">Earn from it</div>
-        <div class="section-body fade-in-right">
+  <!-- COMMISSION -->
+  <section>
+    <div class="w">
+      <div class="two-col">
+        <div class="label">Earn from it</div>
+        <div class="body">
           <h2>10% commission on every install</h2>
           <p>You refer the client, we do the work. You earn 10% of every installation fee.</p>
-          <div class="commission-box scale-in">
-            <div class="big-num">~&euro;1,200</div>
+          <div class="comm">
+            <div class="big">~&euro;1,200</div>
             <p>That's what 30 villa installs puts in your pocket. The owner pays, you earn.</p>
           </div>
         </div>
       </div>
     </div>
+  </section>
 
-    <!-- ── PRICING ── -->
-    <div class="section fade-in">
-      <div class="section-grid">
-        <div class="section-label fade-in-left">Simple pricing</div>
-        <div class="section-body">
+  <!-- PRICING -->
+  <section>
+    <div class="w">
+      <div class="two-col">
+        <div class="label">Simple pricing</div>
+        <div class="body">
           <h2>What the owner pays</h2>
-          <div class="pricing-table">
-            <div class="pricing-row">
-              <span class="pricing-item">Installation and setup</span>
-              <span class="pricing-price">&euro;395 one-off</span>
+          <div class="price-table">
+            <div class="price-row">
+              <span class="price-item">Installation and setup</span>
+              <span class="price-val">&euro;395 one-off</span>
             </div>
-            <div class="pricing-row">
-              <span class="pricing-item">LeakGuard subscription -- monitoring, alerts, alarms</span>
-              <span class="pricing-price">&euro;60/year</span>
+            <div class="price-row">
+              <span class="price-item">LeakGuard subscription -- monitoring, alerts, alarms</span>
+              <span class="price-val">&euro;60/year</span>
             </div>
-            <div class="pricing-row">
-              <span class="pricing-item">Plus plans with full analytics</span>
-              <span class="pricing-price">Available</span>
+            <div class="price-row">
+              <span class="price-item">Plus plans with full analytics</span>
+              <span class="price-val">Available</span>
             </div>
           </div>
-          <p class="pricing-note">Installation subject to survey. Your commission: 10% of the install fee on every referral.</p>
+          <p class="price-note">Installation subject to survey. Your commission: 10% of the install fee on every referral.</p>
         </div>
       </div>
     </div>
+  </section>
 
-    <!-- ── HOW IT WORKS ── -->
-    <div class="section fade-in">
-      <div class="section-grid">
-        <div class="section-label fade-in-left">The tech</div>
-        <div class="section-body fade-in-right">
+  <!-- THE TECH -->
+  <section>
+    <div class="w">
+      <div class="two-col">
+        <div class="label">The tech</div>
+        <div class="body">
           <h2>How LeakGuard works</h2>
           <p>A cloud-connected device attaches to the property's water meter. It runs on its own cellular connection -- no WiFi, no broadband, no dependency on the property's internet.</p>
           <p>It learns the property's normal usage patterns and sends instant phone alerts when something looks wrong. Overnight flow, sudden spikes, slow creeping increases -- all flagged automatically.</p>
@@ -1210,89 +558,42 @@
         </div>
       </div>
     </div>
+  </section>
 
-  </div>
-
-  <!-- ── CTA ── -->
-  <section class="cta-section fade-in" id="contact">
-    <div class="container">
+  <!-- CTA -->
+  <section class="cta-section" id="contact">
+    <div class="w">
       <h2>Let's talk about your portfolio</h2>
       <p>Whether you manage 5 villas or 50, we'd like to understand your setup and see if LeakGuard is a good fit for your clients.</p>
-      <div class="cta-buttons">
+      <div class="cta-btns">
         <a href="https://wa.me/34711051071?text=Hi%2C%20I%20manage%20villas%20in%20Lanzarote%20and%20I%27m%20interested%20in%20the%20LeakGuard%20partner%20programme." class="btn-primary">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
           WhatsApp us
         </a>
-        <a href="tel:+34711051071" class="btn-outline">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z"/></svg>
+        <a href="tel:+34711051071" class="btn-ghost">
+          <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z"/></svg>
           Call +34 711 051 071
         </a>
-        <a href="mailto:info@canary-detect.com?subject=LeakGuard%20Partner%20Programme" class="btn-outline">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75"/></svg>
+        <a href="mailto:info@canary-detect.com?subject=LeakGuard%20Partner%20Programme" class="btn-ghost">
+          <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75"/></svg>
           Email us
         </a>
       </div>
     </div>
   </section>
 
-  <!-- ── FOOTER ── -->
-  <footer class="site-footer">
+  <footer>
     <div class="footer-inner">
       <div class="footer-left">
         <img src="img/logo-dark-bg.png" alt="Canary Detect" class="footer-logo">
         <div class="footer-text">
-          <p>LeakGuard by <a href="https://canary-detect.com">Canary Detect</a></p>
-          <p>Lanzarote, Canary Islands</p>
+          LeakGuard by <a href="https://canary-detect.com">Canary Detect</a><br>
+          Lanzarote, Canary Islands
         </div>
       </div>
-      <div class="footer-right">
-        &copy; 2026 Canary Detect. All rights reserved.
-      </div>
+      <div class="footer-right">&copy; 2026 Canary Detect</div>
     </div>
   </footer>
 
-  <!-- ── SCROLL REVEAL ── -->
-  <script>
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-
-    document.querySelectorAll('.fade-in, .fade-in-left, .fade-in-right, .scale-in, .stagger-children').forEach(el => {
-      observer.observe(el);
-    });
-
-    // Animated counter for stats
-    function animateCounters() {
-      const statNums = document.querySelectorAll('.stat-num');
-      const counterObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            const el = entry.target;
-            const text = el.textContent;
-            el.style.transition = 'transform 0.3s ease';
-            el.style.transform = 'scale(1.15)';
-            setTimeout(() => { el.style.transform = 'scale(1)'; }, 300);
-            counterObserver.unobserve(el);
-          }
-        });
-      }, { threshold: 0.5 });
-      statNums.forEach(el => counterObserver.observe(el));
-    }
-    animateCounters();
-
-    // Parallax-lite for hero image
-    window.addEventListener('scroll', () => {
-      const heroImg = document.querySelector('.hero-image');
-      if (heroImg) {
-        const scrolled = window.pageYOffset;
-        heroImg.style.transform = `translateY(${scrolled * 0.08}px)`;
-      }
-    }, { passive: true });
-  </script>
 </body>
 </html>
